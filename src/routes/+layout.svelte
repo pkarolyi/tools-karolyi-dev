@@ -1,7 +1,11 @@
 <script lang="ts">
+	import Header from '$lib/components/icons/header.svelte';
 	import '../app.css';
 
 	let { children } = $props();
 </script>
 
-{@render children()}
+<div class="h-screen w-screen bg-zinc-50">
+	<Header />
+	{@render children()}
+</div>
