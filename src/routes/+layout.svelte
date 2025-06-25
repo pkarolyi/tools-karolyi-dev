@@ -1,11 +1,13 @@
 <script lang="ts">
-	import Header from '$lib/components/icons/header.svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import Header from '$lib/components/header.svelte';
 	import '../app.css';
 
 	let { children } = $props();
 </script>
 
-<div class="h-screen w-screen bg-zinc-50">
+<div class="flex h-screen w-screen flex-col bg-zinc-50">
 	<Header />
 	{@render children()}
+	<Footer />
 </div>
