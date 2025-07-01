@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+@theme {
+	--font-mono: 'Courier Prime', monospace;
+	--font-sans: 'Arial', 'sans-serif';
+}

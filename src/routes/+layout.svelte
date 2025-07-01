@@ -6,7 +6,7 @@
 	let { children } = $props();
 </script>
 
-<div class="flex h-screen w-screen flex-col bg-zinc-50">
+<div class="flex h-screen w-screen flex-col bg-zinc-200">
 	<Header />
 	{@render children()}
 	<Footer />

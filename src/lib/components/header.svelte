@@ -5,26 +5,14 @@
 	const path = $derived(page.url.pathname);
 </script>
 
-<header class="flex w-full flex-col gap-2 px-4 py-2 md:flex-row md:gap-8">
-	<h1>tools.karolyi.dev</h1>
-	<nav class="flex justify-between gap-4 md:justify-start">
-		<a href="/uuid" class="group text-cyan-800">
-			uuid-4-generator
-			<span
-				class={clsx(
-					'block h-[1px] bg-cyan-800 opacity-0 transition-all duration-200 group-hover:opacity-100',
-					path === '/uuid' && 'opacity-100!'
-				)}
-			></span>
-		</a>
-		<a href="/jwt" class="group text-cyan-800">
-			jwt-encode-decode
-			<span
-				class={clsx(
-					'block h-[1px] bg-cyan-800 opacity-0 transition-all duration-200 group-hover:opacity-100',
-					path === '/jwt' && 'opacity-100!'
-				)}
-			></span>
+<header
+	class="flex w-full flex-col gap-2 border-cyan-950 bg-cyan-800 px-4 text-zinc-100 md:flex-row md:gap-10"
+>
+	<h1 class="py-2">tools.karolyi.dev</h1>
+	<nav class="flex gap-6">
+		<a href="/uuid" class={clsx('py-2', path === '/uuid' && 'underline')}>uuid-4-generator</a>
+		<a href="/jwt-decode" class={clsx('py-2', path === '/jwt-decode' && 'underline')}>
+			jwt-decoder
 		</a>
 	</nav>
 </header>
