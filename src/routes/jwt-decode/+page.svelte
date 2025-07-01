@@ -10,7 +10,7 @@
 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJleGFtcGxlLXN1YiIsIm5hbWUiOiJFeGFtcGxlIE5hbWUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjEzNTU5NTgwMDB9.q2Nn2h3zgcFbyn4_ejfH6BSjyKuMeNeqNZ7CpcGfm28'
 	);
 	let inputSecret = $state('test-secret-that-is-very-long-yeah');
-	let decodedJwt = $state<jose.JWTPayload | null>(null);
+	let decodedJwt = $state<jose.JWTPayload | null>({});
 	let isSignatureValid = $state(true);
 
 	let choppedJwt = $derived.by(() => {
@@ -50,8 +50,8 @@
 		>
 			<div class="relative flex-1">
 				<textarea
-					class="peer absolute top-[-1px] left-[-1px] h-full w-[calc(100vw-2rem)] resize-none p-4 focus-visible:outline-0 md:w-xl"
-					style="-webkit-text-fill-color: transparent;-webkit-font-smoothing: antialiased"
+					class="absolute top-[-1px] left-[-1px] h-full w-[calc(100vw-2rem)] resize-none p-4 focus-visible:outline-0 md:w-xl"
+					style="-webkit-text-fill-color: transparent"
 					bind:value={inputJwt}
 				></textarea>
 				<pre
@@ -60,8 +60,7 @@
 						class="text-[#005cc5]">{choppedJwt[0]}</span
 					>.<span class="text-cyan-950">{choppedJwt[1]}</span>.<span class="text-[#d73a49]"
 						>{choppedJwt[2]}</span
-					>{#if choppedJwt[3]}.<span class="text-cyan-950">{choppedJwt[3]}</span>{/if}
-			</pre>
+					>{#if choppedJwt[3]}.<span class="text-cyan-950">{choppedJwt[3]}</span>{/if}</pre>
 			</div>
 			<input
 				class="border-t border-r border-b border-cyan-950 px-4 py-2 focus-visible:outline-0"

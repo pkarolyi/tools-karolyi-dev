@@ -14,5 +14,8 @@
 		<a href="/jwt-decode" class={clsx('py-2', path === '/jwt-decode' && 'underline')}>
 			jwt-decoder
 		</a>
+		<a href="/jwt-encode" class={clsx('py-2', path === '/jwt-encode' && 'underline')}>
+			jwt-encoder
+		</a>
 	</nav>
 </header>

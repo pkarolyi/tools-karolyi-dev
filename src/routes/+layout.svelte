@@ -6,7 +6,10 @@
 	let { children } = $props();
 </script>
 
-<div class="flex h-screen w-screen flex-col bg-zinc-200">
+<div
+	class="flex h-screen w-screen flex-col bg-zinc-200"
+	style="-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale"
+>
 	<Header />
 	{@render children()}
 	<Footer />
