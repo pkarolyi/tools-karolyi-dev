@@ -9,12 +9,17 @@
 	let inputHeader = $state(JSON.stringify({ alg: 'HS256', typ: 'JWT' }, null, 2));
 	let inputPayload = $state(
 		JSON.stringify(
-			{ sub: 'example-sub', name: 'Example Name', isAdmin: true, iat: 1355958000 },
+			{
+				sub: '7045684d-e8bb-46ce-b7ea-ebf5ebd84277',
+				name: 'Pelda Geza',
+				isAdmin: true,
+				iat: 1337987000
+			},
 			null,
 			2
 		)
 	);
-	let inputSecret = $state('test-secret-that-is-very-long-yeah');
+	let inputSecret = $state('super-non-secret-example-secret-1');
 	let encodedJwt = $state('');
 	let errorMsg = $state('');
 

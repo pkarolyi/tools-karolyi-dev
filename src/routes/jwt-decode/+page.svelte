@@ -7,9 +7,9 @@
 	hljs.registerLanguage('json', json);
 
 	let inputJwt = $state(
-		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJleGFtcGxlLXN1YiIsIm5hbWUiOiJFeGFtcGxlIE5hbWUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjEzNTU5NTgwMDB9.q2Nn2h3zgcFbyn4_ejfH6BSjyKuMeNeqNZ7CpcGfm28'
+		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MDQ1Njg0ZC1lOGJiLTQ2Y2UtYjdlYS1lYmY1ZWJkODQyNzciLCJuYW1lIjoiUGVsZGEgR2V6YSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTMzNzk4NzAwMH0.ZOY3HVPVMLz4xg-6ur6eAyWFdavI_2KKEvAFr32yL2k'
 	);
-	let inputSecret = $state('test-secret-that-is-very-long-yeah');
+	let inputSecret = $state('super-non-secret-example-secret-1');
 	let decodedJwt = $state<jose.JWTPayload | null>({});
 	let isSignatureValid = $state(true);
 
