@@ -18,6 +18,12 @@
 		<a href="/jwt-encode" class={clsx('py-2', path === '/jwt-encode' && 'underline')}>
 			jwt-encoder
 		</a>
+		<a href="/base64-decode" class={clsx('py-2', path === '/base64-decode' && 'underline')}>
+			base64-decoder
+		</a>
+		<a href="/base64-encode" class={clsx('py-2', path === '/base64-encode' && 'underline')}>
+			base64-encoder
+		</a>
 	</nav>
 	<a href="https://github.com/pkarolyi/tools-karolyi-dev"><GithubIcon className="size-5" /></a>
 </header>
