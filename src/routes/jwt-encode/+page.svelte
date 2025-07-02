@@ -56,6 +56,12 @@
 	});
 </script>
 
+<svelte:head>
+	<title>tools.karolyi.dev | jwt encoder</title>
+	<meta name="description" content="A simple JWT encoder" />
+	<meta name="keywords" content="jwt, jws, encoder, jwt encoder" />
+</svelte:head>
+
 <div class="flex h-full w-full items-center justify-center">
 	<main class="flex flex-col gap-16 text-sm md:text-base xl:flex-row">
 		<div

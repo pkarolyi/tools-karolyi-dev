@@ -13,6 +13,12 @@
 	};
 </script>
 
+<svelte:head>
+	<title>tools.karolyi.dev | uuid 4 generator</title>
+	<meta name="description" content="A simple UUID v4 generator" />
+	<meta name="keywords" content="uuid, uuidv4, generator, uuid generator" />
+</svelte:head>
+
 <div class="flex h-full w-full items-center justify-center">
 	<main class="border border-r-2 border-b-2 border-cyan-950 bg-zinc-50 p-4">
 		<div class="flex flex-col items-center justify-between gap-4 sm:flex-row sm:gap-16">
