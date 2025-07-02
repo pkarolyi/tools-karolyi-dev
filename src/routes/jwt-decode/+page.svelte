@@ -13,9 +13,9 @@
 	let decodedJwt = $state<jose.JWTPayload | null>({});
 	let isSignatureValid = $state(true);
 
-	let choppedJwt = $derived.by(() => {
-		const [header, payload, signature, ...rest] = inputJwt.split('.');
-		return [header, payload, signature, rest.join('.')];
+	let splitJwt = $derived.by(() => {
+		const match = inputJwt.match(/^([^.]+)(\.)([^.]*)(\.)([^.]*)(.*)$/);
+		return match ?? [inputJwt, inputJwt];
 	});
 
 	$effect(() => {
@@ -63,10 +63,12 @@
 				<pre
 					aria-hidden="true"
 					class="h-full border-r border-cyan-950 p-4 wrap-break-word break-keep whitespace-pre-wrap text-black"><span
-						class="text-[#005cc5]">{choppedJwt[0]}</span
-					>.<span class="text-cyan-950">{choppedJwt[1]}</span>.<span class="text-[#d73a49]"
-						>{choppedJwt[2]}</span
-					>{#if choppedJwt[3]}.<span class="text-cyan-950">{choppedJwt[3]}</span>{/if}</pre>
+						class="text-[#005cc5]">{splitJwt[1]}</span
+					><span class="text-black">{splitJwt[2]}</span><span class="text-cyan-950"
+						>{splitJwt[3]}</span
+					><span class="text-black">{splitJwt[4]}</span><span class="text-[#d73a49]"
+						>{splitJwt[5]}</span
+					><span class="text-[#6f42c1]">{splitJwt[6]}</span></pre>
 			</div>
 			<input
 				class="border-t border-r border-b border-cyan-950 px-4 py-2 focus-visible:outline-0"
@@ -76,11 +78,13 @@
 		<div
 			class="flex w-[calc(100vw-2rem)] flex-col justify-between border border-r-2 border-b-2 border-cyan-950 bg-zinc-50 md:min-h-64 md:w-xl"
 		>
-			<pre class="p-4">{@html highlightedJwt}</pre>
-			{#if isSignatureValid}
-				<div class="border-t border-cyan-950 bg-green-200 px-4 py-2">Signature valid</div>
-			{:else}
+			<pre class="flex-1 p-4">{@html highlightedJwt}</pre>
+			{#if decodedJwt === null}
+				<div class="border-t border-cyan-950 bg-red-200 px-4 py-2">Invalid JWT</div>
+			{:else if !isSignatureValid}
 				<div class="border-t border-cyan-950 bg-red-200 px-4 py-2">Signature invalid</div>
+			{:else}
+				<div class="border-t border-cyan-950 bg-green-200 px-4 py-2">Signature valid</div>
 			{/if}
 		</div>
 	</main>
