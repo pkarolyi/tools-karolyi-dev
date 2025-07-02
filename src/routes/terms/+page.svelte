@@ -8,12 +8,19 @@
 				merchantability and warranty of fitness for a particular purpose.
 			</p>
 			<p>
-				No personal data is collected or stored by me. All data is processed in the browser, no
-				uuids or jwts are ever sent to the server.
+				No personal data is collected or stored by me. All application data is processed in the
+				browser, no uuids or jwts or other user inputs are ever sent to the server.
 			</p>
 			<p>
 				The site is currently hosted on Vercel so their
-				<a href="https://vercel.com/legal/terms" class="text-cyan-800">terms</a> apply.
+				<a href="https://vercel.com/legal/terms" class="text-cyan-800">terms</a> and
+				<a href="https://vercel.com/legal/privacy-policy" class="text-cyan-800">privacy policy</a> applies.
+			</p>
+			<p>
+				The site uses Vercel Analytics, so their <a
+					href="https://vercel.com/docs/analytics/privacy-policy"
+					class="text-cyan-800">privacy policy</a
+				> applies.
 			</p>
 			<p>
 				If you want to get in touch about this site, please send an email to
