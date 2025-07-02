@@ -3,6 +3,7 @@
 	import hljs from 'highlight.js/lib/core';
 	import json from 'highlight.js/lib/languages/json';
 	import 'highlight.js/styles/github.css';
+	import CopyIcon from '$lib/components/icons/copy.svelte';
 
 	hljs.registerLanguage('json', json);
 
@@ -41,6 +42,10 @@
 	const highlightedJwt = $derived(
 		hljs.highlight(JSON.stringify(decodedJwt, null, 2), { language: 'json' }).value
 	);
+
+	const copyJwt = () => {
+		navigator.clipboard.writeText(JSON.stringify(decodedJwt, null, 2));
+	};
 </script>
 
 <svelte:head>
@@ -78,7 +83,17 @@
 		<div
 			class="flex w-[calc(100vw-2rem)] flex-col justify-between border border-r-2 border-b-2 border-cyan-950 bg-zinc-50 md:min-h-64 md:w-xl"
 		>
-			<pre class="flex-1 p-4">{@html highlightedJwt}</pre>
+			<div class="relative flex-1">
+				<pre class="p-4">{@html highlightedJwt}</pre>
+				{#if decodedJwt !== null}
+					<button
+						onclick={copyJwt}
+						class="absolute right-2 bottom-2 flex cursor-pointer items-center gap-1 border border-r-2 border-b-2 border-cyan-800 bg-zinc-50 p-1 text-cyan-800 active:border-t-zinc-50 active:border-l-zinc-50 active:bg-cyan-800 active:text-zinc-50"
+					>
+						<CopyIcon className="size-5" />
+					</button>
+				{/if}
+			</div>
 			{#if decodedJwt === null}
 				<div class="border-t border-cyan-950 bg-red-200 px-4 py-2">Invalid JWT</div>
 			{:else if !isSignatureValid}
